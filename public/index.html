@@ -13,9 +13,9 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #0a0a0a;
             min-height: 100vh;
-            color: #333;
+            color: #e4e4e4;
         }
 
         .container {
@@ -27,17 +27,18 @@
         .header {
             text-align: center;
             margin-bottom: 40px;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(20, 20, 20, 0.95);
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .header h1 {
             font-size: 2.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
@@ -45,14 +46,14 @@
 
         .header p {
             font-size: 1.1rem;
-            color: #666;
+            color: #b0b0b0;
             margin-bottom: 15px;
             line-height: 1.6;
         }
 
         .credit {
             font-size: 0.9rem;
-            color: #888;
+            color: #6b7280;
             font-style: italic;
         }
 
@@ -62,20 +63,20 @@
             right: 30px;
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
             border: none;
             border-radius: 50%;
             color: white;
             font-size: 24px;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
             transition: all 0.3s ease;
             z-index: 1000;
         }
 
         .add-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.6);
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.6);
         }
 
         .modal {
@@ -85,7 +86,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             z-index: 2000;
             backdrop-filter: blur(5px);
         }
@@ -95,19 +96,20 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: white;
+            background: #1a1a1a;
             padding: 30px;
             border-radius: 20px;
             width: 90%;
             max-width: 600px;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .modal h2 {
             margin-bottom: 25px;
-            color: #333;
+            color: #e4e4e4;
             text-align: center;
             font-size: 1.8rem;
         }
@@ -120,24 +122,26 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: #555;
+            color: #b0b0b0;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 2px solid #e1e5e9;
+            border: 2px solid #2a2a2a;
             border-radius: 10px;
             font-size: 16px;
             transition: border-color 0.3s ease;
+            background: #0f0f0f;
+            color: #e4e4e4;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
         }
 
         .form-group textarea {
@@ -146,17 +150,18 @@
         }
 
         .file-upload {
-            border: 2px dashed #ccc;
+            border: 2px dashed #2a2a2a;
             border-radius: 10px;
             padding: 20px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            background: #0f0f0f;
         }
 
         .file-upload:hover {
-            border-color: #667eea;
-            background: rgba(102, 126, 234, 0.05);
+            border-color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.05);
         }
 
         .file-upload input {
@@ -176,7 +181,7 @@
             height: 80px;
             border-radius: 8px;
             overflow: hidden;
-            border: 2px solid #e1e5e9;
+            border: 2px solid #2a2a2a;
         }
 
         .preview-item img {
@@ -217,23 +222,24 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
             color: white;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
         }
 
         .btn-secondary {
-            background: #f8f9fa;
-            color: #666;
-            border: 2px solid #e1e5e9;
+            background: #2a2a2a;
+            color: #b0b0b0;
+            border: 2px solid #404040;
         }
 
         .btn-secondary:hover {
-            background: #e9ecef;
+            background: #404040;
+            color: #e4e4e4;
         }
 
         .scammer-grid {
@@ -244,33 +250,36 @@
         }
 
         .scammer-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(20, 20, 20, 0.95);
             border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
         }
 
         .scammer-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 107, 107, 0.3);
         }
 
         .scammer-info h3 {
-            color: #333;
+            color: #e4e4e4;
             margin-bottom: 15px;
             font-size: 1.3rem;
         }
 
         .scammer-info p {
             margin-bottom: 10px;
-            color: #666;
+            color: #b0b0b0;
         }
 
         .scammer-info .label {
             font-weight: 600;
-            color: #333;
+            color: #e4e4e4;
         }
 
         .evidence-images {
@@ -287,6 +296,7 @@
             border-radius: 8px;
             cursor: pointer;
             transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .evidence-images img:hover {
@@ -300,12 +310,150 @@
             background: none;
             border: none;
             font-size: 24px;
-            color: #999;
+            color: #6b7280;
             cursor: pointer;
         }
 
         .close-btn:hover {
-            color: #333;
+            color: #e4e4e4;
+        }
+
+        /* Detail Modal Styles */
+        .detail-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2500;
+            backdrop-filter: blur(5px);
+        }
+
+        .detail-modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-header h2 {
+            color: #e4e4e4;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .detail-header .scam-type {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .detail-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .detail-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-section h3 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .detail-item {
+            margin-bottom: 12px;
+        }
+
+        .detail-item .label {
+            color: #b0b0b0;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .detail-item .value {
+            color: #e4e4e4;
+            word-break: break-word;
+        }
+
+        .detail-item .value a {
+            color: #4ecdc4;
+            text-decoration: none;
+        }
+
+        .detail-item .value a:hover {
+            text-decoration: underline;
+        }
+
+        .evidence-gallery {
+            grid-column: 1 / -1;
+        }
+
+        .evidence-gallery h3 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .evidence-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .evidence-item:hover {
+            transform: scale(1.05);
+        }
+
+        .evidence-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .no-evidence {
+            text-align: center;
+            color: #6b7280;
+            font-style: italic;
+            padding: 20px;
         }
 
         @media (max-width: 768px) {
@@ -317,13 +465,22 @@
                 font-size: 2rem;
             }
             
-            .modal-content {
+            .modal-content, .detail-modal-content {
                 padding: 20px;
                 margin: 20px;
             }
             
             .scammer-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .detail-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .evidence-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
         }
     </style>
@@ -344,6 +501,7 @@
 
     <button class="add-btn" onclick="openModal()">+</button>
 
+    <!-- Add Scammer Modal -->
     <div class="modal" id="addScammerModal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal()">&times;</button>
@@ -392,6 +550,16 @@
         </div>
     </div>
 
+    <!-- Detail Scammer Modal -->
+    <div class="detail-modal" id="detailScammerModal">
+        <div class="detail-modal-content">
+            <button class="close-btn" onclick="closeDetailModal()">&times;</button>
+            <div id="detailContent">
+                <!-- Detail content will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
     <script>
         let selectedFiles = [];
         let scammerData = [];
@@ -408,6 +576,83 @@
             document.getElementById('scammerForm').reset();
             selectedFiles = [];
             document.getElementById('previewContainer').innerHTML = '';
+        }
+
+        function openDetailModal(scammer) {
+            const modal = document.getElementById('detailScammerModal');
+            const content = document.getElementById('detailContent');
+            
+            content.innerHTML = `
+                <div class="detail-header">
+                    <h2>${scammer.name}</h2>
+                    <div class="scam-type">${scammer.scamType}</div>
+                </div>
+                
+                <div class="detail-content">
+                    <div class="detail-section">
+                        <h3>Informasi Kontak</h3>
+                        ${scammer.phone ? `
+                            <div class="detail-item">
+                                <span class="label">Nomor Telepon:</span>
+                                <span class="value">${scammer.phone}</span>
+                            </div>
+                        ` : '<div class="detail-item"><span class="value" style="color: #6b7280; font-style: italic;">Nomor telepon tidak tersedia</span></div>'}
+                        
+                        ${scammer.website ? `
+                            <div class="detail-item">
+                                <span class="label">Website:</span>
+                                <span class="value"><a href="${scammer.website}" target="_blank">${scammer.website}</a></span>
+                            </div>
+                        ` : '<div class="detail-item"><span class="value" style="color: #6b7280; font-style: italic;">Website tidak tersedia</span></div>'}
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>Detail Laporan</h3>
+                        <div class="detail-item">
+                            <span class="label">Jenis Penipuan:</span>
+                            <span class="value">${scammer.scamType}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Tanggal Dilaporkan:</span>
+                            <span class="value">${new Date(scammer.createdAt).toLocaleDateString('id-ID', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            })}</span>
+                        </div>
+                    </div>
+                    
+                    ${scammer.description ? `
+                        <div class="detail-section" style="grid-column: 1 / -1;">
+                            <h3>Deskripsi</h3>
+                            <div class="detail-item">
+                                <span class="value">${scammer.description}</span>
+                            </div>
+                        </div>
+                    ` : ''}
+                    
+                    <div class="evidence-gallery">
+                        <h3>Bukti Foto</h3>
+                        ${scammer.evidence && scammer.evidence.length > 0 ? `
+                            <div class="evidence-grid">
+                                ${scammer.evidence.map(img => `
+                                    <div class="evidence-item" onclick="openImageModal('/uploads/${img}')">
+                                        <img src="/uploads/${img}" alt="Bukti ${scammer.name}">
+                                    </div>
+                                `).join('')}
+                            </div>
+                        ` : '<div class="no-evidence">Tidak ada bukti foto yang tersedia</div>'}
+                    </div>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detailScammerModal').style.display = 'none';
         }
 
         function handleFileSelect(event) {
@@ -497,7 +742,7 @@
             
             if (scammers.length === 0) {
                 grid.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: rgba(255,255,255,0.7);">
+                    <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: rgba(255,255,255,0.5);">
                         <h3>Belum ada data scammer</h3>
                         <p>Tambahkan scammer pertama dengan klik tombol + di pojok kanan bawah</p>
                     </div>
@@ -506,20 +751,23 @@
             }
 
             grid.innerHTML = scammers.map(scammer => `
-                <div class="scammer-card">
+                <div class="scammer-card" onclick="openDetailModal(${JSON.stringify(scammer).replace(/"/g, '&quot;')})">
                     <div class="scammer-info">
                         <h3>${scammer.name}</h3>
                         <p><span class="label">Jenis Penipuan:</span> ${scammer.scamType}</p>
                         ${scammer.phone ? `<p><span class="label">Nomor:</span> ${scammer.phone}</p>` : ''}
-                        ${scammer.website ? `<p><span class="label">Website:</span> <a href="${scammer.website}" target="_blank">${scammer.website}</a></p>` : ''}
-                        ${scammer.description ? `<p><span class="label">Deskripsi:</span> ${scammer.description}</p>` : ''}
                         <p><span class="label">Dilaporkan:</span> ${new Date(scammer.createdAt).toLocaleDateString('id-ID')}</p>
                         
                         ${scammer.evidence && scammer.evidence.length > 0 ? `
                             <div class="evidence-images">
-                                ${scammer.evidence.map(img => `
-                                    <img src="/uploads/${img}" alt="Bukti" onclick="openImageModal('/uploads/${img}')">
+                                ${scammer.evidence.slice(0, 3).map(img => `
+                                    <img src="/uploads/${img}" alt="Bukti" onclick="event.stopPropagation(); openImageModal('/uploads/${img}')">
                                 `).join('')}
+                                ${scammer.evidence.length > 3 ? `
+                                    <div style="display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 12px; color: #b0b0b0;">
+                                        +${scammer.evidence.length - 3}
+                                    </div>
+                                ` : ''}
                             </div>
                         ` : ''}
                     </div>
@@ -531,24 +779,29 @@
             const modal = document.createElement('div');
             modal.style.cssText = `
                 position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                background: rgba(0,0,0,0.9); display: flex; align-items: center;
+                background: rgba(0,0,0,0.95); display: flex; align-items: center;
                 justify-content: center; z-index: 3000; cursor: pointer;
             `;
             
             const img = document.createElement('img');
             img.src = src;
-            img.style.cssText = 'max-width: 90%; max-height: 90%; border-radius: 10px;';
+            img.style.cssText = 'max-width: 90%; max-height: 90%; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);';
             
             modal.appendChild(img);
             modal.onclick = () => modal.remove();
             document.body.appendChild(modal);
         }
 
-        // Close modal when clicking outside
+        // Close modals when clicking outside
         window.onclick = function(event) {
-            const modal = document.getElementById('addScammerModal');
-            if (event.target === modal) {
+            const addModal = document.getElementById('addScammerModal');
+            const detailModal = document.getElementById('detailScammerModal');
+            
+            if (event.target === addModal) {
                 closeModal();
+            }
+            if (event.target === detailModal) {
+                closeDetailModal();
             }
         }
     </script>
