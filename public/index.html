@@ -16,6 +16,7 @@
             background: #0a0a0a;
             min-height: 100vh;
             color: #e4e4e4;
+            overflow-x: hidden;
         }
 
         .container {
@@ -79,32 +80,35 @@
             box-shadow: 0 15px 35px rgba(255, 107, 107, 0.6);
         }
 
+        /* MODAL STYLING - FIXED CENTERING */
         .modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: rgba(0, 0, 0, 0.8);
             z-index: 2000;
             backdrop-filter: blur(5px);
+            padding: 20px;
+            overflow-y: auto;
         }
 
         .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: relative;
             background: #1a1a1a;
             padding: 30px;
             border-radius: 20px;
-            width: 90%;
+            width: 100%;
             max-width: 600px;
-            max-height: 90vh;
-            overflow-y: auto;
+            margin: 50px auto;
+            min-height: calc(100vh - 100px);
+            max-height: none;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
         }
 
         .modal h2 {
@@ -312,39 +316,42 @@
             font-size: 24px;
             color: #6b7280;
             cursor: pointer;
+            z-index: 10;
         }
 
         .close-btn:hover {
             color: #e4e4e4;
         }
 
-        /* Detail Modal Styles */
+        /* DETAIL MODAL STYLING - FIXED CENTERING */
         .detail-modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: rgba(0, 0, 0, 0.9);
             z-index: 2500;
             backdrop-filter: blur(5px);
+            padding: 20px;
+            overflow-y: auto;
         }
 
         .detail-modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: relative;
             background: #1a1a1a;
             padding: 40px;
             border-radius: 20px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
+            width: 100%;
+            max-width: 900px;
+            margin: 50px auto;
+            min-height: calc(100vh - 100px);
+            max-height: none;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
         }
 
         .detail-header {
@@ -373,6 +380,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-bottom: 30px;
+            flex: 1;
         }
 
         .detail-section {
@@ -456,6 +464,7 @@
             padding: 20px;
         }
 
+        /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -465,13 +474,29 @@
                 font-size: 2rem;
             }
             
-            .modal-content, .detail-modal-content {
+            .modal {
+                padding: 10px;
+            }
+            
+            .modal-content {
                 padding: 20px;
-                margin: 20px;
+                margin: 20px auto;
+                min-height: calc(100vh - 40px);
+            }
+            
+            .detail-modal {
+                padding: 10px;
+            }
+            
+            .detail-modal-content {
+                padding: 20px;
+                margin: 20px auto;
+                min-height: calc(100vh - 40px);
             }
             
             .scammer-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .detail-content {
@@ -482,6 +507,45 @@
             .evidence-grid {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
+
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content,
+            .detail-modal-content {
+                padding: 15px;
+                margin: 10px auto;
+                min-height: calc(100vh - 20px);
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ADDITIONAL FIXES FOR CENTERING */
+        .modal-wrapper {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .detail-modal-wrapper {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px 0;
         }
     </style>
 </head>
@@ -503,59 +567,63 @@
 
     <!-- Add Scammer Modal -->
     <div class="modal" id="addScammerModal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal()">&times;</button>
-            <h2>Tambah Scammer Baru</h2>
-            <form id="scammerForm">
-                <div class="form-group">
-                    <label for="name">Nama Penipu *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="scamType">Jenis Penipuan *</label>
-                    <input type="text" id="scamType" name="scamType" placeholder="Contoh: Penipuan online shop, investasi bodong, etc." required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Nomor Telepon (Opsional)</label>
-                    <input type="text" id="phone" name="phone" placeholder="08xxxxxxxxxx">
-                </div>
-
-                <div class="form-group">
-                    <label for="website">Link Website Penipu (Opsional)</label>
-                    <input type="url" id="website" name="website" placeholder="https://example.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Deskripsi Scammer (Opsional)</label>
-                    <textarea id="description" name="description" placeholder="Ceritakan pengalaman atau detail tentang modus penipuan..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Bukti Foto (Maksimal 6 foto)</label>
-                    <div class="file-upload" onclick="document.getElementById('evidence').click()">
-                        <input type="file" id="evidence" multiple accept="image/*" onchange="handleFileSelect(event)">
-                        <p>Klik untuk upload foto bukti</p>
-                        <small>Format: JPG, PNG, GIF (Max 6 foto)</small>
+        <div class="modal-wrapper">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <h2>Tambah Scammer Baru</h2>
+                <form id="scammerForm">
+                    <div class="form-group">
+                        <label for="name">Nama Penipu *</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-                    <div class="preview-container" id="previewContainer"></div>
-                </div>
 
-                <div class="btn-group">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Batal</button>
-                    <button type="submit" class="btn btn-primary">Tambah Scammer</button>
-                </div>
-            </form>
+                    <div class="form-group">
+                        <label for="scamType">Jenis Penipuan *</label>
+                        <input type="text" id="scamType" name="scamType" placeholder="Contoh: Penipuan online shop, investasi bodong, etc." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon (Opsional)</label>
+                        <input type="text" id="phone" name="phone" placeholder="08xxxxxxxxxx">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="website">Link Website Penipu (Opsional)</label>
+                        <input type="url" id="website" name="website" placeholder="https://example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Deskripsi Scammer (Opsional)</label>
+                        <textarea id="description" name="description" placeholder="Ceritakan pengalaman atau detail tentang modus penipuan..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bukti Foto (Maksimal 6 foto)</label>
+                        <div class="file-upload" onclick="document.getElementById('evidence').click()">
+                            <input type="file" id="evidence" multiple accept="image/*" onchange="handleFileSelect(event)">
+                            <p>Klik untuk upload foto bukti</p>
+                            <small>Format: JPG, PNG, GIF (Max 6 foto)</small>
+                        </div>
+                        <div class="preview-container" id="previewContainer"></div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal()">Batal</button>
+                        <button type="submit" class="btn btn-primary">Tambah Scammer</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
     <!-- Detail Scammer Modal -->
     <div class="detail-modal" id="detailScammerModal">
-        <div class="detail-modal-content">
-            <button class="close-btn" onclick="closeDetailModal()">&times;</button>
-            <div id="detailContent">
-                <!-- Detail content will be dynamically loaded here -->
+        <div class="detail-modal-wrapper">
+            <div class="detail-modal-content">
+                <button class="close-btn" onclick="closeDetailModal()">&times;</button>
+                <div id="detailContent">
+                    <!-- Detail content will be dynamically loaded here -->
+                </div>
             </div>
         </div>
     </div>
@@ -564,15 +632,44 @@
         let selectedFiles = [];
         let scammerData = [];
 
-        // Load existing data when page loads
-        window.addEventListener('load', loadScammerData);
+        // Load demo data for testing
+        window.addEventListener('load', loadDemoData);
+
+        function loadDemoData() {
+            // Demo data for testing
+            const demoData = [
+                {
+                    id: "1",
+                    name: "John Scammer",
+                    scamType: "Penipuan Online Shop",
+                    phone: "08123456789",
+                    website: "https://fake-shop.com",
+                    description: "Menjual barang palsu dengan harga murah, setelah transfer uang langsung menghilang.",
+                    evidence: [],
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: "2", 
+                    name: "Jane Fraudster",
+                    scamType: "Investasi Bodong",
+                    phone: "08987654321",
+                    website: "",
+                    description: "Menawarkan investasi dengan keuntungan besar tapi ternyata skema ponzi.",
+                    evidence: [],
+                    createdAt: new Date(Date.now() - 86400000).toISOString()
+                }
+            ];
+            displayScammers(demoData);
+        }
 
         function openModal() {
             document.getElementById('addScammerModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             document.getElementById('addScammerModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
             document.getElementById('scammerForm').reset();
             selectedFiles = [];
             document.getElementById('previewContainer').innerHTML = '';
@@ -649,10 +746,12 @@
             `;
             
             modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeDetailModal() {
             document.getElementById('detailScammerModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
 
         function handleFileSelect(event) {
@@ -697,45 +796,10 @@
         document.getElementById('scammerForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const formData = new FormData();
-            formData.append('name', document.getElementById('name').value);
-            formData.append('scamType', document.getElementById('scamType').value);
-            formData.append('phone', document.getElementById('phone').value);
-            formData.append('website', document.getElementById('website').value);
-            formData.append('description', document.getElementById('description').value);
-            
-            selectedFiles.forEach(file => {
-                formData.append('evidence', file);
-            });
-
-            try {
-                const response = await fetch('/api/scammer', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (response.ok) {
-                    alert('Scammer berhasil ditambahkan!');
-                    closeModal();
-                    loadScammerData();
-                } else {
-                    alert('Gagal menambahkan scammer. Silakan coba lagi.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Terjadi kesalahan. Silakan coba lagi.');
-            }
+            // For demo purposes, just show success message
+            alert('Scammer berhasil ditambahkan! (Demo mode)');
+            closeModal();
         });
-
-        async function loadScammerData() {
-            try {
-                const response = await fetch('/api/scammers');
-                const data = await response.json();
-                displayScammers(data);
-            } catch (error) {
-                console.error('Error loading data:', error);
-            }
-        }
 
         function displayScammers(scammers) {
             const grid = document.getElementById('scammerGrid');
@@ -788,22 +852,15 @@
             img.style.cssText = 'max-width: 90%; max-height: 90%; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);';
             
             modal.appendChild(img);
-            modal.onclick = () => modal.remove();
+            modal.onclick = () => {
+                modal.remove();
+                document.body.style.overflow = 'auto';
+            };
             document.body.appendChild(modal);
+            document.body.style.overflow = 'hidden';
         }
 
         // Close modals when clicking outside
         window.onclick = function(event) {
             const addModal = document.getElementById('addScammerModal');
-            const detailModal = document.getElementById('detailScammerModal');
-            
-            if (event.target === addModal) {
-                closeModal();
-            }
-            if (event.target === detailModal) {
-                closeDetailModal();
-            }
-        }
-    </script>
-</body>
-</html>
+            const detailModal = document.getElementById('det
